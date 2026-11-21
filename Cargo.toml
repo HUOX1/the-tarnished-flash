@@ -1,0 +1,18 @@
+[package]
+name = "speedforce"
+version = "1.0.1"
+edition = "2021"
+description = "Temporary speed-field slowdown for nearby characters in ELDEN RING (ModEngine3 native plugin)"
+license = "MIT"
+
+[lib]
+name = "speedforce"
+crate-type = ["cdylib", "rlib"]
+
+# No third-party crates on purpose: the whole plugin is auditable in one pass.
+[dependencies]
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "unwind"
